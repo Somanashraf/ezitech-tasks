@@ -12,32 +12,23 @@ A modern, fully responsive **multi-page Travel Agency Website** built with HTML5
 
 ## 📸 Screenshots
 
-### 🏠 Home Page – Hero Section
-![Hero Section](screenshots/hero.png)
-
-### 🗺️ Destinations Page
-![Destinations](screenshots/destinations.png)
-
-### 📦 Tour Packages
-![Packages](screenshots/packages.png)
-
-### 🖼️ Gallery Page
-![Gallery](screenshots/gallery.png)
-
-### 💬 Testimonials Page
-![Testimonials](screenshots/testimonials.png)
-
-### 📖 About Page
-![About](screenshots/about.png)
-
-### 📝 Blog Page
-![Blog](screenshots/blog.png)
-
-### ❓ FAQ Page
-![FAQ](screenshots/faq.png)
-
-### 📞 Contact Page
-![Contact](screenshots/contact.png)
+<table>
+  <tr>
+    <td align="center"><strong>🏠 Home – Hero</strong><br><img src="screenshots/hero.png" width="280" alt="Hero Section"></td>
+    <td align="center"><strong>🗺️ Destinations</strong><br><img src="screenshots/destinations.png" width="280" alt="Destinations"></td>
+    <td align="center"><strong>📦 Packages</strong><br><img src="screenshots/packages.png" width="280" alt="Packages"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>🖼️ Gallery</strong><br><img src="screenshots/gallery.png" width="280" alt="Gallery"></td>
+    <td align="center"><strong>💬 Testimonials</strong><br><img src="screenshots/testimonials.png" width="280" alt="Testimonials"></td>
+    <td align="center"><strong>📖 About</strong><br><img src="screenshots/about.png" width="280" alt="About"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>📝 Blog</strong><br><img src="screenshots/blog.png" width="280" alt="Blog"></td>
+    <td align="center"><strong>❓ FAQ</strong><br><img src="screenshots/faq.png" width="280" alt="FAQ"></td>
+    <td align="center"><strong>� Contact</strong><br><img src="screenshots/contact.png" width="280" alt="Contact"></td>
+  </tr>
+</table>
 
 ---
 
@@ -149,15 +140,6 @@ cd ezitech-tasks/travel-agency
 
 ---
 
-## 📍 Office Location
-
-> **WanderLux Travel Agency**
-> 54 MM Alam Road, Gulberg III
-> Lahore, Punjab 54000, Pakistan
-> 📞 +92 300 123 4567
-> 📧 hello@wanderlux.com
-
----
 
 ## 👨‍💻 Developer
 
@@ -171,6 +153,4 @@ cd ezitech-tasks/travel-agency
 
 This project is created for educational purposes as part of EziTech Institute coursework.
 
----
 
-*Made with ❤️ using HTML5, CSS3 & Bootstrap 5*
