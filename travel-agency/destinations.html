@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore amazing destinations worldwide with WanderLux – Paris, Dubai, Switzerland, Bali, Maldives, Tokyo and more.">
+  <title>Destinations – WanderLux Travel Agency</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-custom navbar-expand-lg scrolled" id="mainNavbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="brand-icon" aria-hidden="true"><i class="fas fa-globe-americas"></i></div>
+      <span class="brand-text">Wander<span>Lux</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="destinations.html">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link nav-book-btn" href="contact.html"><i class="fas fa-paper-plane me-1"></i>Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="background-image:url('images/hero-destinations.jpg');background-size:cover;background-position:center;" aria-label="Destinations hero">
+  <div class="hero-overlay"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="row">
+      <div class="col-lg-7 py-5">
+        <div class="breadcrumb-nav mb-3">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Destinations</span>
+        </div>
+        <h1 class="page-hero-title">Explore Amazing <span style="color:#0EA5E9">Destinations</span></h1>
+        <p class="page-hero-subtitle">Discover the world's most breathtaking places, handpicked by our travel experts just for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS GRID -->
+<section class="py-5" aria-label="All destinations">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label"><i class="fas fa-globe-americas me-2"></i>Destinations</span>
+      <h2 class="section-title reveal">Explore The World's Best <span>Places</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle reveal">From sun-kissed beaches to snow-capped mountains – your perfect destination awaits</p>
+    </div>
+    <div class="row g-4">
+      <!-- 1: Paris -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-paris.jpg" alt="Paris, France">
+            <div class="card-badge"><i class="fas fa-fire"></i> Hot Deal</div>
+            <div class="price-tag">From $899</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> France</div>
+            <h3 class="card-title">Paris</h3>
+            <p class="card-desc">Experience the city of love with iconic landmarks, world-class cuisine, and romantic ambiance.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(1,245 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">7 Days from <strong>$899</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 2: Dubai -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-dubai.jpg" alt="Dubai, UAE">
+            <div class="card-badge"><i class="fas fa-gem"></i> Luxury</div>
+            <div class="price-tag">From $1,299</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> United Arab Emirates</div>
+            <h3 class="card-title">Dubai</h3>
+            <p class="card-desc">Explore modern marvels, luxury shopping, desert safaris, and stunning architecture.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(987 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">5 Days from <strong>$1,299</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 3: Switzerland -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-switzerland.jpg" alt="Switzerland">
+            <div class="card-badge"><i class="fas fa-mountain"></i> Adventure</div>
+            <div class="price-tag">From $1,599</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Switzerland</div>
+            <h3 class="card-title">Switzerland</h3>
+            <p class="card-desc">Majestic Alps, pristine lakes, charming villages, and unforgettable scenic train journeys.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(1,543 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">8 Days from <strong>$1,599</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 4: Istanbul -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-turkey.jpg" alt="Istanbul, Turkey">
+            <div class="card-badge"><i class="fas fa-certificate"></i> Best Value</div>
+            <div class="price-tag">From $749</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Turkey</div>
+            <h3 class="card-title">Istanbul, Turkey</h3>
+            <p class="card-desc">Where East meets West. Rich history, vibrant bazaars, stunning mosques, and Bosphorus cruises.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(823 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">6 Days from <strong>$749</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 5: Bali -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-bali.jpg" alt="Bali, Indonesia">
+            <div class="price-tag">From $699</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Indonesia</div>
+            <h3 class="card-title">Bali</h3>
+            <p class="card-desc">Tropical paradise with stunning beaches, rice terraces, ancient temples, and vibrant culture.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(2,145 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">6 Days from <strong>$699</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 6: Maldives -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-maldives.jpg" alt="Maldives">
+            <div class="card-badge"><i class="fas fa-heart"></i> Honeymoon</div>
+            <div class="price-tag">From $1,899</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Maldives</div>
+            <h3 class="card-title">Maldives</h3>
+            <p class="card-desc">Overwater villas, crystal-clear waters, pristine beaches, and world-class diving.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(1,876 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">5 Days from <strong>$1,899</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 7: Tokyo -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-japan.jpg" alt="Tokyo, Japan">
+            <div class="price-tag">From $1,399</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Japan</div>
+            <h3 class="card-title">Tokyo, Japan</h3>
+            <p class="card-desc">Ancient temples meet futuristic cities. Sushi, cherry blossoms, and a unique culture like no other.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(1,456 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">9 Days from <strong>$1,399</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 8: Rome -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-italy.jpg" alt="Rome, Italy">
+            <div class="price-tag">From $1,199</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Italy</div>
+            <h3 class="card-title">Rome, Italy</h3>
+            <p class="card-desc">Historic ruins, Renaissance art, gondola rides, and authentic Italian cuisine in the Eternal City.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(1,234 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">7 Days from <strong>$1,199</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 9: New York -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-newyork.jpg" alt="New York, USA">
+            <div class="price-tag">From $1,099</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> USA</div>
+            <h3 class="card-title">New York, USA</h3>
+            <p class="card-desc">The city that never sleeps. Broadway shows, iconic skylines, world-class museums, and diverse food.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(1,089 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">5 Days from <strong>$1,099</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 10: Santorini -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-santorini.jpg" alt="Santorini, Greece">
+            <div class="card-badge"><i class="fas fa-sun"></i> Popular</div>
+            <div class="price-tag">From $1,299</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Greece</div>
+            <h3 class="card-title">Santorini, Greece</h3>
+            <p class="card-desc">Iconic white-washed cliffs, stunning sunsets, volcanic beaches, and incredible Mediterranean food.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(1,678 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">6 Days from <strong>$1,299</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 11: Cape Town -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-capetown.jpg" alt="Cape Town, South Africa">
+            <div class="price-tag">From $1,199</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> South Africa</div>
+            <h3 class="card-title">Cape Town</h3>
+            <p class="card-desc">Table Mountain, penguins, wine estates, pristine beaches, and incredible wildlife nearby.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(934 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">7 Days from <strong>$1,199</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 12: Bangkok -->
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="destination-card">
+          <div class="card-img-wrap">
+            <img src="images/dest-bangkok.jpg" alt="Bangkok, Thailand">
+            <div class="card-badge"><i class="fas fa-certificate"></i> Best Value</div>
+            <div class="price-tag">From $649</div>
+          </div>
+          <div class="card-body">
+            <div class="card-location"><i class="fas fa-map-marker-alt"></i> Thailand</div>
+            <h3 class="card-title">Bangkok, Thailand</h3>
+            <p class="card-desc">Ornate temples, bustling night markets, floating markets, street food, and vibrant nightlife.</p>
+            <div class="card-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(1,102 reviews)</span>
+            </div>
+            <div class="card-footer-custom">
+              <span class="from-price">6 Days from <strong>$649</strong></span>
+              <a href="contact.html" class="btn-outline-primary" style="padding:8px 20px;font-size:0.85rem">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED DESTINATION: SANTORINI -->
+<section class="py-5 bg-alt" aria-label="Featured destination">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label"><i class="fas fa-star me-2"></i>Featured</span>
+      <h2 class="section-title reveal">Destination of the Month: <span>Santorini</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="position-relative rounded-custom overflow-hidden reveal" style="min-height:480px;">
+      <img src="images/dest-santorini-featured.jpg" alt="Santorini, Greece" style="width:100%;height:480px;object-fit:cover;display:block;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,23,42,0.85) 45%,rgba(15,23,42,0.2));display:flex;align-items:center;">
+        <div class="col-lg-6 p-5">
+          <span class="section-label mb-3 d-inline-block"><i class="fas fa-map-marker-alt me-1"></i> Greece</span>
+          <h3 style="color:white;font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1.2;margin-bottom:16px;">Santorini – <br><span style="color:#0EA5E9">A Dream Come True</span></h3>
+          <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.8;margin-bottom:28px;">Perched on volcanic cliffs above the azure Aegean Sea, Santorini is one of the world's most romantic and photogenic islands. Explore iconic blue-domed churches, indulge in fresh seafood, watch legendary sunsets from Oia, and relax on unique volcanic beaches.</p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span style="background:rgba(255,255,255,0.15);color:white;padding:8px 16px;border-radius:50px;font-size:0.9rem;"><i class="fas fa-clock me-2"></i>6 Days</span>
+            <span style="background:rgba(255,255,255,0.15);color:white;padding:8px 16px;border-radius:50px;font-size:0.9rem;"><i class="fas fa-users me-2"></i>All Groups</span>
+            <span style="background:rgba(245,158,11,0.25);color:#F59E0B;padding:8px 16px;border-radius:50px;font-size:0.9rem;"><i class="fas fa-tag me-2"></i>From $1,299</span>
+          </div>
+          <a href="contact.html" class="btn-primary-custom"><i class="fas fa-paper-plane me-2"></i>Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL TIPS -->
+<section class="py-5" aria-label="Travel tips">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label"><i class="fas fa-lightbulb me-2"></i>Pro Tips</span>
+      <h2 class="section-title reveal">Smart <span>Travel Tips</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle reveal">Make the most of your adventures with these expert travel insights</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-passport"></i></div>
+          <h4>Book Early</h4>
+          <p>Secure the best deals by booking your flights and hotels at least 3–6 months in advance for peak seasons.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Travel Insurance</h4>
+          <p>Always purchase comprehensive travel insurance to protect against cancellations, medical emergencies, and theft.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-language"></i></div>
+          <h4>Learn Local Phrases</h4>
+          <p>A few words in the local language go a long way. Locals appreciate the effort and it enriches your experience.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-suitcase-rolling"></i></div>
+          <h4>Pack Light</h4>
+          <p>Bring only what you need. A lighter bag means more flexibility, easier transport, and less stress at airports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="reveal">Found Your <span style="color:#0EA5E9">Dream Destination?</span></h2>
+      <p class="reveal">Let our travel experts craft the perfect itinerary tailored just for you. Start your journey today.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center reveal">
+        <a href="contact.html" class="btn-primary-custom"><i class="fas fa-paper-plane me-2"></i>Book Now</a>
+        <a href="packages.html" class="btn-secondary-custom"><i class="fas fa-suitcase me-2"></i>View Packages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-brand">
+          <div class="brand-name"><div class="brand-icon"><i class="fas fa-globe-americas"></i></div> WanderLux</div>
+          <p>Creating unforgettable travel experiences for adventurers, romantics, and explorers around the world since 2011.<br><br><i class="fas fa-map-marker-alt me-1" style="color:#0EA5E9"></i> 54 MM Alam Road, Gulberg III, Lahore, Pakistan<br><i class="fas fa-phone me-1" style="color:#0EA5E9"></i> +92 300 123 4567</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6"><h5 class="footer-heading">Company</h5><ul class="footer-links"><li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li><li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h5 class="footer-heading">Destinations</h5><ul class="footer-links"><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Dubai</a></li><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Switzerland</a></li><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Turkey</a></li><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Bali</a></li><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Maldives</a></li><li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Paris</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h5 class="footer-heading">Quick Links</h5><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="packages.html"><i class="fas fa-chevron-right"></i> Packages</a></li><li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li><li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li></ul></div>
+      <div class="col-lg-3 col-md-5"><h5 class="footer-heading">Support</h5><ul class="footer-links mb-4"><li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Terms &amp; Conditions</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Refund Policy</a></li></ul><h5 class="footer-heading mt-3">Newsletter</h5><form class="d-flex gap-2" data-demo><input type="email" class="form-control" placeholder="Your email" style="border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.9);" required><button type="submit" class="btn" style="background:#0EA5E9;color:white;border-radius:8px;padding:8px 14px;"><i class="fas fa-paper-plane"></i></button></form></div>
+    </div>
+  </div>
+  <div class="container"><div class="footer-bottom"><p>&copy; 2026 WanderLux Travel Agency. All Rights Reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
