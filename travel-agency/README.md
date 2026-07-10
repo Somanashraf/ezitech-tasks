@@ -6,7 +6,7 @@ A modern, fully responsive **multi-page Travel Agency Website** built with HTML5
 
 ## 🌐 Live Preview
 
-> Open `index.html` in your browser to view the website locally.
+https://wanderlux-travel-agency.vercel.app/
 
 ---
 
