@@ -12,9 +12,9 @@
 
 .admin-menu { padding: 1rem 0; list-style: none; margin: 0; flex: 1; }
 .admin-menu-section { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #64748B; padding: 0.75rem 1.5rem 0.25rem; font-weight: 600; }
-.admin-menu-item a { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1.5rem; color: #94A3B8; font-weight: 500; font-size: 0.92rem; text-decoration: none; border-left: 3px solid transparent; transition: all 0.2s ease; }
-.admin-menu-item a:hover, .admin-menu-item a.active { color: #0EA5E9; background: rgba(14,165,233,0.12); border-left-color: #0EA5E9; }
-.admin-menu-item i { font-size: 1rem; width: 20px; text-align: center; }
+.admin-menu-item a { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1.5rem; color: #E2E8F0; font-weight: 500; font-size: 0.92rem; text-decoration: none; border-left: 3px solid transparent; transition: all 0.2s ease; }
+.admin-menu-item a:hover, .admin-menu-item a.active { color: #38BDF8; background: rgba(14,165,233,0.18); border-left-color: #0EA5E9; font-weight: 600; }
+.admin-menu-item i { font-size: 1rem; width: 20px; text-align: center; color: #38BDF8; }
 
 .admin-main { flex: 1; display: flex; flex-direction: column; min-width: 0; background-color: #F8FAFC; }
 
@@ -94,16 +94,14 @@
   color: #FFFFFF;
 }
 
-/* ── Overlay Backdrop ── */
+/* ── Overlay Backdrop (Clean Dark Overlay without WebKit Blur Bug) ── */
 .admin-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.55);
   z-index: 1040;
   opacity: 0;
   visibility: hidden;
@@ -128,14 +126,19 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 270px;
-    z-index: 1050;
+    width: 275px;
+    background-color: #0F172A !important;
+    z-index: 1050 !important;
     transform: translateX(-100%);
-    box-shadow: 4px 0 25px rgba(0,0,0,0.3);
+    -webkit-transform: translateX(-100%);
+    will-change: transform;
+    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.4);
   }
   .admin-sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
   }
+
   .admin-header {
     height: auto;
     min-height: 64px;
