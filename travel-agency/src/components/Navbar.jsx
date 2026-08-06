@@ -8,9 +8,7 @@ const navLinks = [
   { to: '/destinations', label: 'Destinations' },
   { to: '/packages', label: 'Packages' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/testimonials', label: 'Testimonials' },
   { to: '/blog', label: 'Blog' },
-  { to: '/faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
@@ -61,7 +59,8 @@ export default function Navbar() {
         </button>
 
         <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`}>
-          <ul className="navbar-nav ms-auto align-items-lg-center gap-1">
+          {/* CENTER: Navigation Links */}
+          <ul className="navbar-nav mx-auto align-items-lg-center my-2 my-lg-0">
             {navLinks.map(({ to, label }) => (
               <li className="nav-item" key={to}>
                 <Link
@@ -72,65 +71,65 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            
-            {/* Login / User Profile */}
+          </ul>
+
+          {/* RIGHT: Action Buttons */}
+          <div className="nav-actions d-flex flex-column flex-lg-row align-items-lg-center gap-2 mt-2 mt-lg-0">
             {!currentUser ? (
-              <li className="nav-item">
-                <Link className="nav-link nav-login-btn" to="/login">
-                  <i className="fas fa-sign-in-alt me-1"></i>Login
-                </Link>
-              </li>
+              <Link className="nav-link nav-login-btn" to="/login">
+                <i className="fas fa-sign-in-alt me-1"></i>Login
+              </Link>
             ) : (
-              <li className="nav-item user-dropdown">
+              <div className="user-dropdown">
                 <button
                   className="nav-link nav-user-btn"
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  aria-expanded={userDropdownOpen}
+                  aria-label="User menu"
                 >
                   <div className="user-avatar">
-                    <i className="fas fa-user-circle"></i>
+                    <i className="fas fa-user-check"></i>
                   </div>
                   <span className="user-name">{currentUser.name}</span>
                   <span className={`user-role ${currentUser.role}`}>
                     {currentUser.role}
                   </span>
-                  <i className={`fas fa-chevron-${userDropdownOpen ? 'up' : 'down'} ms-1`}></i>
+                  <i className={`fas fa-chevron-${userDropdownOpen ? 'up' : 'down'} user-chevron`}></i>
                 </button>
-                
+
                 {userDropdownOpen && (
                   <div className="user-dropdown-menu">
+                    <div className="dropdown-user-header px-3 py-2 border-bottom border-secondary border-opacity-25 mb-1">
+                      <div className="fw-bold text-white small">{currentUser.name}</div>
+                      <div className="text-white-50" style={{ fontSize: '0.75rem' }}>{currentUser.email || 'Admin Account'}</div>
+                    </div>
                     {isAdmin && (
                       <Link to="/admin" className="dropdown-item" onClick={() => setUserDropdownOpen(false)}>
-                        <i className="fas fa-tachometer-alt"></i>
-                        Admin Dashboard
+                        <i className="fas fa-chart-line text-accent"></i>
+                        <span>Admin Dashboard</span>
                       </Link>
                     )}
-                    <Link to="/my-bookings" className="dropdown-item" onClick={() => setUserDropdownOpen(false)}>
-                      <i className="fas fa-suitcase"></i>
-                      My Bookings
-                    </Link>
                     <Link to="/contact" className="dropdown-item" onClick={() => setUserDropdownOpen(false)}>
-                      <i className="fas fa-headset"></i>
-                      Support
+                      <i className="fas fa-headset text-info"></i>
+                      <span>Support & Help</span>
                     </Link>
                     <div className="dropdown-divider"></div>
                     <button onClick={handleLogout} className="dropdown-item logout">
                       <i className="fas fa-sign-out-alt"></i>
-                      Logout
+                      <span>Sign Out</span>
                     </button>
                   </div>
                 )}
-              </li>
+              </div>
             )}
-            
-            {/* Book Now */}
-            <li className="nav-item">
-              <Link className="nav-link nav-book-btn" to="/contact">
-                <i className="fas fa-paper-plane me-1"></i>Book Now
-              </Link>
-            </li>
-          </ul>
+
+            <Link className="nav-link nav-book-btn" to="/contact">
+              <i className="fas fa-paper-plane me-1"></i>Book Now
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
   )
 }
+

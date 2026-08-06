@@ -31,6 +31,7 @@ import DestinationManagement from './admin/pages/DestinationManagement'
 import CategoryManagement   from './admin/pages/CategoryManagement'
 import BookingManagement    from './admin/pages/BookingManagement'
 import CustomerManagement   from './admin/pages/CustomerManagement'
+import BlogManagement       from './admin/pages/BlogManagement'
 
 function AppContent() {
   const location = useLocation()
@@ -75,6 +76,7 @@ function AppContent() {
             <Route path="categories"   element={<CategoryManagement />} />
             <Route path="bookings"     element={<BookingManagement />} />
             <Route path="customers"    element={<CustomerManagement />} />
+            <Route path="blogs"        element={<BlogManagement />} />
           </Route>
         </Route>
       </Routes>

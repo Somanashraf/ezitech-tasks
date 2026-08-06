@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useCountUp from '../hooks/useCountUp'
 
@@ -34,9 +34,29 @@ const packages = [
 ]
 
 const testimonials = [
-  { img: 'reviewer-ayesha.jpg', name: 'Ayesha Khan',  location: 'Lahore, Pakistan',    text: '"Maldives honeymoon bilkul perfect thi! WanderLux ne har cheez itni carefully plan ki — overwater villa se lekar beach dinner tak. Lahore se itni achi service milna waqai unexpected tha!"' },
-  { img: 'reviewer-usman.jpg',  name: 'Usman Ahmed',  location: 'Karachi, Pakistan',   text: '"Japan tour ne saari expectations paar kar deen. Guide bohat knowledgeable tha, hotels kamaal ke they. WanderLux ki team ne Karachi se book karte waqt bhi poori help ki. Highly recommend!"' },
-  { img: 'reviewer-fatima.jpg', name: 'Fatima Malik', location: 'Islamabad, Pakistan', text: '"Akele Bali jana thoda daunting lag raha tha lekin WanderLux ne itna safe feel karaya. 24/7 support se kabhi akela feel nahi hua. Islamabad se travel karna bilkul easy tha!"' },
+  { img: 'reviewer-ayesha.jpg', name: 'Ayesha Khan', location: 'Lahore • Maldives Honeymoon', stars: 5, text: '"Our Maldives honeymoon was absolute perfection! WanderLux took care of every single detail — from our overwater villa reservation to romantic private beach dining. Lahore se itni achi service milna waqai unexpected tha!"' },
+  { img: 'reviewer-usman.jpg', name: 'Usman Ahmed', location: 'Karachi • Japan Tour', stars: 5, text: '"The Japan tour exceeded all expectations. Our guide was knowledgeable, hotels were top-notch, and the high-speed bullet train journey from Tokyo to Kyoto was breathtaking. WanderLux ki team ne Karachi se poori help ki!"' },
+  { img: 'reviewer-fatima.jpg', name: 'Fatima Malik', location: 'Islamabad • Bali Trip', stars: 5, text: '"Traveling solo to Bali felt intimidating, but WanderLux made me feel completely safe and comfortable. The rice terraces and beach resorts were stunning. 24/7 support se kabhi akela feel nahi hua!"' },
+  { img: 'reviewer-tariq.jpg', name: 'Tariq Mehmood', location: 'Faisalabad • Dubai Family Trip', stars: 5, text: '"We booked a family trip to Dubai with our four kids. From the desert safari dunes to Burj Khalifa, everything was meticulously organized. The itinerary was relaxed and stress-free. Premium service all the way!"' },
+  { img: 'reviewer-sana.jpg', name: 'Sana Riaz', location: 'Multan • Switzerland Tour', stars: 5, text: '"Seeing the Swiss Alps in person left me speechless! WanderLux crafted an 8-day itinerary with scenic rail passes, mountain hikes, and cozy alpine hotels. Incredible value for money!"' },
+  { img: 'reviewer-hassan.jpg', name: 'Hassan Qureshi', location: 'Rawalpindi • Italy Tour', stars: 5, text: '"Our trip to Rome and Venice was unforgettable. The private local guides brought Roman history to life, and the boutique hotel locations were central to all major landmarks. Excellent organization!"' },
+  { img: 'reviewer-zainab.jpg', name: 'Zainab Hussain', location: 'Lahore • Greece Trip', stars: 5, text: '"Santorini was a dream come true! Watching the Oia sunset from our private caldera view suite felt like a fairytale. This was my third time booking with WanderLux, and they never disappoint!"' },
+  { img: 'reviewer-ali.jpg', name: 'Ali Raza', location: 'Karachi • Kenya Safari', stars: 5, text: '"Witnessing the Great Migration on our Kenya safari was one of the most incredible experiences of my life. WanderLux handled all complex flight connections and park permits seamlessly. Truly top tier!"' },
+  { img: 'reviewer-nadia.jpg', name: 'Nadia Shahid', location: 'Islamabad • Paris Trip', stars: 5, text: '"It was our first time visiting Paris. WanderLux arranged a bilingual guide and a gorgeous boutique hotel near the Eiffel Tower. The Seine river cruise and Versailles palace tour were magical!"' },
+  { img: 'reviewer-bilal.jpg', name: 'Bilal Chaudhry', location: 'Lahore • Turkey Tour', stars: 5, text: '"Turkey is mesmerizing! The hot air balloon ride in Cappadocia was a bucket list moment. The cave hotel accommodation was super unique, and the Grand Bazaar tours were perfectly timed. Highly recommended!"' },
+  { img: 'reviewer-hina.jpg', name: 'Hina Baig', location: 'Sialkot • Bali Trip', stars: 5, text: '"Our private pool villa in Bali was gorgeous. The balance between adventure tours and relaxation was perfect. WanderLux local destination partners delivered world-class hospitality throughout our stay!"' },
+  { img: 'reviewer-omar.jpg', name: 'Omar Farooq', location: 'Peshawar • Maldives Trip', stars: 5, text: '"Snorkeling in the coral reefs and staying in an overwater bungalow was paradise on Earth. From airport greeting to departure, WanderLux handled everything flawlessly. I will always book with them!"' }
+]
+
+const homeFaqs = [
+  { icon: 'fa-bookmark', q: 'How do I book a tour with WanderLux?', a: 'Booking with WanderLux is simple. Browse our packages or destinations, choose what interests you, then either fill in our online contact form or call us directly at +92 300 123 4567. One of our travel consultants will reach out within 24 hours to confirm details, customize your itinerary, and guide you through the secure payment process.' },
+  { icon: 'fa-times-circle', q: 'Can I cancel my booking and get a refund?', a: 'Yes, cancellations are accepted. If you cancel more than 60 days before departure, you\'ll receive a full refund minus a small processing fee. Cancellations between 30–60 days receive a 50% refund. Cancellations within 30 days of departure are non-refundable, but we can often offer travel credits for future bookings.' },
+  { icon: 'fa-plane', q: 'Does WanderLux include flights in packages?', a: 'Many of our packages include international flights, clearly marked as "Flights Included" on the package detail. For packages that don\'t include flights, we can arrange them at competitive rates and add them to your booking.' },
+  { icon: 'fa-shield-alt', q: 'Is travel insurance included?', a: 'Travel insurance is not automatically included but is strongly recommended and can be added to any booking. We partner with leading insurers to offer comprehensive coverage including trip cancellation, medical emergencies, and flight delays.' },
+  { icon: 'fa-passport', q: 'Do I need a visa? Can you help?', a: 'Visa requirements depend on your nationality and destination. Our team will advise you on exactly which visas are needed and provide detailed guidance. For many popular destinations, we can assist with visa processing as part of our service.' },
+  { icon: 'fa-route', q: 'Can I create a custom tour package?', a: "Absolutely! Custom tours are one of our specialties. Simply tell us your destination preferences, travel dates, budget, group size, and interests – and our expert consultants will design a bespoke itinerary from scratch." },
+  { icon: 'fa-child', q: 'Are packages suitable for children?', a: 'Yes! Many of our packages are family-friendly with age-appropriate activities, family accommodation, and flexible pacing. Children under 12 typically receive discounts of 20–30%.' },
+  { icon: 'fa-users', q: 'Do you offer group discounts?', a: 'Yes! Groups of 8 or more receive a minimum 10% discount. Groups of 15+ receive 15% off, and larger groups of 25+ can negotiate even greater savings. We also offer complimentary spaces for group leaders.' },
 ]
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -68,6 +88,52 @@ function StatCounter({ icon, count, suffix, label }) {
 export default function HomePage() {
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [nlStatus, setNlStatus] = useState('idle')
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const [touchStart, setTouchStart] = useState(null)
+  const [mouseStart, setMouseStart] = useState(null)
+  const [openFaq, setOpenFaq] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const handlePrevTestimonial = () => {
+    setActiveTestimonial(prev => (prev === 0 ? testimonials.length - 1 : prev - 1))
+  }
+
+  const handleNextTestimonial = () => {
+    setActiveTestimonial(prev => (prev === testimonials.length - 1 ? 0 : prev + 1))
+  }
+
+  useEffect(() => {
+    if (isHovered) return
+    const timer = setInterval(() => {
+      setActiveTestimonial(prev => (prev === testimonials.length - 1 ? 0 : prev + 1))
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [isHovered])
+
+  const handleTouchStart = (e) => setTouchStart(e.touches[0].clientX)
+  const handleTouchEnd = (e) => {
+    if (touchStart === null) return
+    const diff = e.changedTouches[0].clientX - touchStart
+    if (diff < -30) handleNextTestimonial()
+    else if (diff > 30) handlePrevTestimonial()
+    setTouchStart(null)
+  }
+
+  const handleMouseDown = (e) => setMouseStart(e.clientX)
+  const handleMouseUp = (e) => {
+    if (mouseStart === null) return
+    const diff = e.clientX - mouseStart
+    if (diff < -30) handleNextTestimonial()
+    else if (diff > 30) handlePrevTestimonial()
+    setMouseStart(null)
+  }
 
   const handleNewsletter = (e) => {
     e.preventDefault()
@@ -306,35 +372,281 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-5 bg-alt" aria-label="Testimonials">
+      {/* ── TESTIMONIALS 3D COVERFLOW CAROUSEL ── */}
+      <section className="py-5 bg-alt position-relative overflow-hidden" aria-label="Testimonials">
         <div className="container">
-          <div className="section-header center">
+          <div className="section-header center mb-3">
             <span className="section-label"><i className="fas fa-quote-right me-2"></i>Reviews</span>
             <h2 className="section-title reveal">What Our Travelers <span>Say</span></h2>
             <div className="section-divider"></div>
-            <p className="section-subtitle reveal">Real stories from real travelers who experienced the WanderLux difference</p>
+            <p className="section-subtitle reveal">Swipe or click to explore real stories from travelers who experienced the WanderLux difference</p>
           </div>
-          <div className="row g-4">
-            {testimonials.map((t, i) => (
-              <div className="col-lg-4 col-md-6 reveal" key={i}>
-                <div className="testimonial-card">
-                  <div className="quote-icon">&ldquo;</div>
-                  <div className="star-rating">{[1,2,3,4,5].map(s => <i key={s} className="fas fa-star"></i>)}</div>
-                  <p className="review-text">{t.text}</p>
-                  <div className="reviewer">
-                    <img src={`/images/${t.img}`} alt={t.name} />
-                    <div className="reviewer-info">
-                      <h5>{t.name}</h5>
-                      <span><i className="fas fa-map-marker-alt"></i> {t.location}</span>
+
+          {/* Controls Header */}
+          <div className="d-flex justify-content-end align-items-center mb-3 px-md-4">
+            <div className="d-flex gap-2 ms-auto">
+              <button
+                className="slider-arrow-btn"
+                onClick={handlePrevTestimonial}
+                aria-label="Previous Testimonials"
+              >
+                <i className="fas fa-chevron-left"></i>
+              </button>
+              <button
+                className="slider-arrow-btn"
+                onClick={handleNextTestimonial}
+                aria-label="Next Testimonials"
+              >
+                <i className="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          {/* 3D Coverflow Stage */}
+          <div className="testimonial-3d-wrapper">
+            <div
+              className="testimonial-3d-stage"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+            >
+              {testimonials.map((t, index) => {
+                let offset = index - activeTestimonial
+                const total = testimonials.length
+                if (offset < -Math.floor(total / 2)) offset += total
+                if (offset > Math.floor(total / 2)) offset -= total
+
+                const step = windowWidth < 576 ? 160 : windowWidth < 992 ? 220 : 310
+
+                let transform = ''
+                let opacity = 0
+                let zIndex = 0
+                let filter = 'none'
+                let pointerEvents = 'none'
+
+                if (offset === 0) {
+                  // Main Center Active Card
+                  transform = 'translateX(0px) scale(1.05) translateZ(0px) rotateY(0deg)'
+                  opacity = 1
+                  zIndex = 10
+                  pointerEvents = 'auto'
+                } else if (offset === -1) {
+                  // Left Side Card
+                  transform = `translateX(-${step}px) scale(0.85) translateZ(-90px) rotateY(18deg)`
+                  opacity = 0.72
+                  zIndex = 6
+                  pointerEvents = 'auto'
+                  filter = 'blur(0.3px)'
+                } else if (offset === 1) {
+                  // Right Side Card
+                  transform = `translateX(${step}px) scale(0.85) translateZ(-90px) rotateY(-18deg)`
+                  opacity = 0.72
+                  zIndex = 6
+                  pointerEvents = 'auto'
+                  filter = 'blur(0.3px)'
+                } else if (offset === -2) {
+                  // Far Left
+                  transform = `translateX(-${step * 1.75}px) scale(0.66) translateZ(-180px) rotateY(25deg)`
+                  opacity = 0.3
+                  zIndex = 3
+                  filter = 'blur(1px)'
+                } else if (offset === 2) {
+                  // Far Right
+                  transform = `translateX(${step * 1.75}px) scale(0.66) translateZ(-180px) rotateY(-25deg)`
+                  opacity = 0.3
+                  zIndex = 3
+                  filter = 'blur(1px)'
+                } else {
+                  transform = `translateX(${offset > 0 ? step * 2.5 : -step * 2.5}px) scale(0.5) translateZ(-300px)`
+                  opacity = 0
+                  zIndex = 0
+                }
+
+                return (
+                  <div
+                    key={index}
+                    className={`testimonial-3d-card ${offset === 0 ? 'active-card' : 'side-card'}`}
+                    style={{
+                      transform,
+                      opacity,
+                      zIndex,
+                      filter,
+                      pointerEvents,
+                      cursor: offset !== 0 ? 'pointer' : 'default'
+                    }}
+                    onClick={() => setActiveTestimonial(index)}
+                  >
+                    <div className="quote-badge">&ldquo;</div>
+                    <div className="star-rating mb-3" style={{ color: '#F59E0B' }}>
+                      {[...Array(t.stars || 5)].map((_, s) => (
+                        <i key={s} className="fas fa-star me-1"></i>
+                      ))}
+                    </div>
+                    <p className="review-text">{t.text}</p>
+                    <div className="reviewer-profile">
+                      <img src={`/images/${t.img}`} alt={t.name} className="reviewer-avatar" />
+                      <div>
+                        <h5 className="reviewer-name">{t.name}</h5>
+                        <span className="reviewer-loc">
+                          <i className="fas fa-map-marker-alt text-primary"></i> {t.location}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="slider-dots-container d-flex justify-content-center gap-2 mt-2">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                className={`slider-dot ${activeTestimonial === idx ? 'active' : ''}`}
+                onClick={() => setActiveTestimonial(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
             ))}
           </div>
-          <div className="text-center mt-5">
-            <Link to="/testimonials" className="btn-outline-primary"><i className="fas fa-comments me-2"></i> Read All Reviews</Link>
+        </div>
+      </section>
+
+      {/* ── FAQ SECTION ── */}
+      <section className="py-5" aria-label="Frequently Asked Questions">
+        <div className="container">
+          <div className="section-header center mb-4">
+            <span className="section-label"><i className="fas fa-question-circle me-2"></i>FAQ</span>
+            <h2 className="section-title reveal">Frequently Asked <span>Questions</span></h2>
+            <div className="section-divider"></div>
+            <p className="section-subtitle reveal">Everything you need to know about booking, cancellations, and travel requirements</p>
+          </div>
+
+          <div className="row g-4">
+            {/* Left Column (4 FAQs) */}
+            <div className="col-lg-6">
+              <div className="home-faq-accordion">
+                {homeFaqs.slice(0, 4).map((faq, idx) => {
+                  const i = idx
+                  const isOpen = openFaq === i
+                  return (
+                    <div
+                      key={i}
+                      className={`home-faq-item ${isOpen ? 'active' : ''} mb-3`}
+                      style={{
+                        borderRadius: '12px',
+                        border: '1px solid rgba(14, 165, 233, 0.15)',
+                        backgroundColor: '#ffffff',
+                        overflow: 'hidden',
+                        boxShadow: isOpen ? '0 4px 20px rgba(14, 165, 233, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      <button
+                        className="w-100 text-start border-0 bg-transparent p-3 p-md-4 d-flex align-items-center justify-content-between cursor-pointer"
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        aria-expanded={isOpen}
+                        style={{ outline: 'none' }}
+                      >
+                        <span className="d-flex align-items-center gap-3 fw-bold text-dark fs-6">
+                          <i className={`fas ${faq.icon}`} style={{ color: '#0EA5E9', fontSize: '1.1rem' }}></i>
+                          {faq.q}
+                        </span>
+                        <div
+                          className="faq-toggle-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-2"
+                          style={{
+                            width: '32px',
+                            height: '32px',
+                            backgroundColor: isOpen ? '#0EA5E9' : 'rgba(14, 165, 233, 0.08)',
+                            color: isOpen ? '#ffffff' : '#0EA5E9',
+                            transition: 'all 0.3s ease'
+                          }}
+                        >
+                          <i className={`fas fa-chevron-${isOpen ? 'up' : 'down'}`}></i>
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <div
+                          className="px-4 pb-4 pt-0 text-secondary"
+                          style={{
+                            lineHeight: '1.8',
+                            fontSize: '0.92rem',
+                            borderTop: '1px solid rgba(0,0,0,0.05)',
+                            paddingTop: '14px'
+                          }}
+                        >
+                          {faq.a}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Right Column (4 FAQs) */}
+            <div className="col-lg-6">
+              <div className="home-faq-accordion">
+                {homeFaqs.slice(4, 8).map((faq, idx) => {
+                  const i = idx + 4
+                  const isOpen = openFaq === i
+                  return (
+                    <div
+                      key={i}
+                      className={`home-faq-item ${isOpen ? 'active' : ''} mb-3`}
+                      style={{
+                        borderRadius: '12px',
+                        border: '1px solid rgba(14, 165, 233, 0.15)',
+                        backgroundColor: '#ffffff',
+                        overflow: 'hidden',
+                        boxShadow: isOpen ? '0 4px 20px rgba(14, 165, 233, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      <button
+                        className="w-100 text-start border-0 bg-transparent p-3 p-md-4 d-flex align-items-center justify-content-between cursor-pointer"
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        aria-expanded={isOpen}
+                        style={{ outline: 'none' }}
+                      >
+                        <span className="d-flex align-items-center gap-3 fw-bold text-dark fs-6">
+                          <i className={`fas ${faq.icon}`} style={{ color: '#0EA5E9', fontSize: '1.1rem' }}></i>
+                          {faq.q}
+                        </span>
+                        <div
+                          className="faq-toggle-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-2"
+                          style={{
+                            width: '32px',
+                            height: '32px',
+                            backgroundColor: isOpen ? '#0EA5E9' : 'rgba(14, 165, 233, 0.08)',
+                            color: isOpen ? '#ffffff' : '#0EA5E9',
+                            transition: 'all 0.3s ease'
+                          }}
+                        >
+                          <i className={`fas fa-chevron-${isOpen ? 'up' : 'down'}`}></i>
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <div
+                          className="px-4 pb-4 pt-0 text-secondary"
+                          style={{
+                            lineHeight: '1.8',
+                            fontSize: '0.92rem',
+                            borderTop: '1px solid rgba(0,0,0,0.05)',
+                            paddingTop: '14px'
+                          }}
+                        >
+                          {faq.a}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>

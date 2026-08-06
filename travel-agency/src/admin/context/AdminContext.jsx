@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react'
 import {
   initialDestinations, initialCategories, initialTours,
-  initialBookings, initialCustomers, initialActivityLogs
+  initialBookings, initialCustomers, initialActivityLogs, initialBlogs
 } from '../data/adminData'
 import {
   getMonthlyRevenue, getMonthlyBookings,
@@ -49,6 +49,7 @@ export function AdminProvider({ children }) {
   const [destinations, setDestinations] = useState(() => migrateData('wl_destinations', initialDestinations))
   const [categories, setCategories] = useState(() => migrateData('wl_categories', initialCategories))
   const [tours, setTours] = useState(() => migrateData('wl_tours', initialTours))
+  const [blogs, setBlogs] = useState(() => migrateData('wl_blogs', initialBlogs))
   const [bookings, setBookings] = useState(() => { const s = localStorage.getItem('wl_bookings'); return s ? JSON.parse(s) : initialBookings })
   const [customers, setCustomers] = useState(() => { const s = localStorage.getItem('wl_customers'); return s ? JSON.parse(s) : initialCustomers })
   const [activityLogs, setActivityLogs] = useState(() => { const s = localStorage.getItem('wl_activity_logs'); return s ? JSON.parse(s) : initialActivityLogs })
@@ -75,12 +76,51 @@ export function AdminProvider({ children }) {
   useEffect(() => { localStorage.setItem('wl_destinations', JSON.stringify(destinations)) }, [destinations])
   useEffect(() => { localStorage.setItem('wl_categories', JSON.stringify(categories)) }, [categories])
   useEffect(() => { localStorage.setItem('wl_tours', JSON.stringify(tours)) }, [tours])
+  useEffect(() => { localStorage.setItem('wl_blogs', JSON.stringify(blogs)) }, [blogs])
   useEffect(() => { localStorage.setItem('wl_bookings', JSON.stringify(bookings)) }, [bookings])
   useEffect(() => { localStorage.setItem('wl_customers', JSON.stringify(customers)) }, [customers])
   useEffect(() => { localStorage.setItem('wl_activity_logs', JSON.stringify(activityLogs)) }, [activityLogs])
 
   const logActivity = (type, text) => {
     setActivityLogs(prev => [{ id: Date.now(), type, text, time: 'Just now' }, ...prev.slice(0, 49)])
+  }
+
+  // ── Blog CRUD ──
+  const addBlog = (newBlog) => {
+    const blog = {
+      id: `blog-${Date.now().toString().slice(-4)}`,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      read: newBlog.read || '5 min read',
+      img: newBlog.img || 'gal-travel.jpg',
+      status: newBlog.status || 'Published',
+      author: newBlog.author || 'Admin',
+      category: newBlog.category || 'Travel',
+      ...newBlog
+    }
+    setBlogs(prev => [blog, ...prev])
+    logActivity('system', `Published new blog post: "${blog.title}"`)
+  }
+
+  const updateBlog = (id, fields) => {
+    setBlogs(prev => prev.map(b => b.id === id ? { ...b, ...fields } : b))
+    logActivity('system', `Updated blog post ID ${id}`)
+  }
+
+  const deleteBlog = (id) => {
+    const target = blogs.find(b => b.id === id)
+    setBlogs(prev => prev.filter(b => b.id !== id))
+    logActivity('system', `Deleted blog post "${target?.title || id}"`)
+  }
+
+  const toggleBlogStatus = (id) => {
+    setBlogs(prev => prev.map(b => {
+      if (b.id === id) {
+        const next = b.status === 'Published' ? 'Draft' : 'Published'
+        logActivity('system', `Changed blog "${b.title}" status to ${next}`)
+        return { ...b, status: next }
+      }
+      return b
+    }))
   }
 
   // ── Tour CRUD ──
@@ -258,8 +298,9 @@ export function AdminProvider({ children }) {
   return (
     <AdminContext.Provider value={{
       isAuthenticated, loginAdmin, logoutAdmin, clearAllData,
-      destinations, categories, tours, bookings, customers, activityLogs,
+      destinations, categories, tours, blogs, bookings, customers, activityLogs,
       kpis, dashboardAnalytics,
+      addBlog, updateBlog, deleteBlog, toggleBlogStatus,
       addTour, updateTour, deleteTour, duplicateTour, toggleTourStatus, setTourStatus, archiveTour,
       addDestination, updateDestination, deleteDestination,
       addCategory, updateCategory, deleteCategory,

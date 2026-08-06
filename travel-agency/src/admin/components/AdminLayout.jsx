@@ -76,6 +76,11 @@ export default function AdminLayout() {
               <i className="fas fa-user-shield"></i> Customer CRM
             </NavLink>
           </li>
+          <li className="admin-menu-item">
+            <NavLink to="/admin/blogs" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeSidebar}>
+              <i className="fas fa-newspaper"></i> Blog Management
+            </NavLink>
+          </li>
           <li className="admin-menu-section mt-3">Website Link</li>
           <li className="admin-menu-item">
             <Link to="/" target="_blank" rel="noopener noreferrer" onClick={closeSidebar}>
